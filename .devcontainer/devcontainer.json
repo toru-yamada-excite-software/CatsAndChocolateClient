@@ -1,0 +1,29 @@
+{
+  "name": "devcontainer-react",
+  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node",
+  "containerEnv": {
+    "TZ": "Asia/Tokyo"
+  },
+  "postCreateCommand": "/bin/sh ./.devcontainer/postCreateCommand.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dsznajder.es7-react-js-snippets",
+        "esbenp.prettier-vscode",
+        "jawandarajbir.react-vscode-extension-pack"
+      ],
+      "settings": {
+        "editor.renderWhitespace": "all",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": true,
+          "source.addMissingImports": true,
+          "source.organizeImports": true
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "prettier.printWidth": 120,
+        "prettier.trailingComma": "all"
+      }
+    }
+  }
+}

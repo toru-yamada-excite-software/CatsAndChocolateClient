@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "label": "npm: run dev",
+      "detail": "next.js start",
+      "options": { "env": { "NODE_OPTIONS": "--openssl-legacy-provider" } }
+    }
+  ]
+}
