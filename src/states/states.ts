@@ -5,12 +5,12 @@ import { atomWithStorage } from "jotai/utils";
 
 export const gameSettingsAtom = atomWithStorage<GameSettings>("gamesettings", {
   itemsCount: 31,
-  maxTurn: 1,
-  minTurn: 1,
+  maxTurn: 3,
+  minTurn: 3,
   evaluateWith: "tension",
   thresholdAvarage: 75,
   thresholdMax: 80,
-  thresholdTension: -1,
+  thresholdTension: 0,
 });
 
 export const sessionSettingsAtom = atom<SessionSettings>({

@@ -36,7 +36,7 @@ export default function ResultScreen() {
           e.id == player?.id
             ? {
                 ...e,
-                items: e.items.filter((e) => !!sessionSetting.nowEvent?.useItems?.find((f) => f.id == e.id)),
+                items: e.items.filter((e) => !sessionSetting.nowEvent?.useItems?.find((f) => f.id == e.id)),
                 wonEvents:
                   score < 0 || !sessionSetting.nowEvent ? e.wonEvents : [...e.wonEvents, sessionSetting.nowEvent],
               }

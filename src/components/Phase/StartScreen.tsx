@@ -5,11 +5,13 @@ import { Player, playerColors, replenishItems } from "@/models/Models";
 import { gameSettingsAtom, sessionSettingsAtom } from "@/states/states";
 import { shuffle } from "@/utils/utils";
 import AddIcon from "@mui/icons-material/Add";
-import { Box, Button, Dialog } from "@mui/material";
+import SettingsIcon from "@mui/icons-material/Settings";
+import { Box, Button, Dialog, Tooltip } from "@mui/material";
 import { red } from "@mui/material/colors";
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import PlayerItem from "./StartScreen/PlayerItem";
+import SettingDialog from "./StartScreen/SettingDialog";
 import Title from "./StartScreen/Title";
 
 export default function StartScreen() {
@@ -26,6 +28,7 @@ export default function StartScreen() {
   const [validationError, setValidationError] = useState("");
   const [dialog, setDialog] = useState(true);
   const [indicator, setIndiecator] = useState(false);
+  const [settingDialog, setSettingDialog] = useState(false);
 
   useEffect(() =>
     setValidationError(() => {
@@ -107,6 +110,7 @@ export default function StartScreen() {
             order: order[i],
           })),
         items: items,
+        discardItems: [],
         events: events,
         phase: {
           phase: "ready",
@@ -160,9 +164,17 @@ export default function StartScreen() {
             <Box sx={{ mx: "auto", textAlign: "center", fontWeight: 700, color: red[500], height: "1em" }}>
               {validationError}
             </Box>
+            <Box sx={{ width: "100%", display: "flex", justifyContent: "end" }}>
+              <Tooltip title="設定">
+                <Button variant="outlined" onClick={() => setSettingDialog(true)}>
+                  <SettingsIcon titleAccess="設定" />
+                </Button>
+              </Tooltip>
+            </Box>
           </Box>
         </Box>
       </Dialog>
+      <SettingDialog open={settingDialog} onClose={() => setSettingDialog(false)} />
     </>
   );
 }
