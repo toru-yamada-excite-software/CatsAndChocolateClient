@@ -7,7 +7,7 @@ export const gameSettingsAtom = atomWithStorage<GameSettings>("gamesettings", {
   itemsCount: 31,
   maxTurn: 3,
   minTurn: 3,
-  evaluateWith: "tension",
+  evaluateWith: "max",
   thresholdAvarage: 75,
   thresholdMax: 80,
   thresholdTension: 0,

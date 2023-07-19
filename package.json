@@ -16,11 +16,11 @@
     "@mui/icons-material": "^5.13.7",
     "@mui/material": "^5.13.7",
     "axios": "^1.4.0",
+    "framer-motion": "^10.12.22",
     "jotai": "^2.2.2",
     "next": "^13.4.8",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-transition-group": "^4.4.5"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.4.0",

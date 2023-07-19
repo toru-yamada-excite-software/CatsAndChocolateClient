@@ -72,6 +72,6 @@ const ItemBack = () => (
   </svg>
 );
 
-export default function ItemCard(props: { item: Item; width: string; isBack?: boolean }) {
+export default function ItemCard(props: { item: Item; width: string; isFront?: boolean; turn?: boolean }) {
   return <CommonCard front={<ItemFront item={props.item} />} back={<ItemBack />} {...props} />;
 }

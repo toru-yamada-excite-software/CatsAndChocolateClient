@@ -59,7 +59,7 @@ export default function EndScreen() {
         </Typography>
         <List>{players}</List>
         <Button variant="contained" onClick={restartSession} sx={{ display: "block", mx: "auto" }}>
-          もう一回プレイ
+          次のセッションを開始する
         </Button>
       </Paper>
     </Box>

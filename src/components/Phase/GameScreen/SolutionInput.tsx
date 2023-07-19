@@ -9,7 +9,7 @@ import { PlayerName } from "./PlayerController";
 function InputItem(props: { item: Item; disabled?: boolean; onChange?: (item: Item, checked: boolean) => void }) {
   const [checked, setChecked] = useState(false);
 
-  const itemCard = <ItemCard width="100px" item={props.item} />;
+  const itemCard = <ItemCard width="100px" item={props.item} isFront turn={!props.disabled} />;
 
   function handleCheck(e: ChangeEvent<HTMLInputElement>) {
     if (props.disabled) return;

@@ -52,6 +52,6 @@ const EventBack = () => (
   </svg>
 );
 
-export default function EventCard(props: { event?: PinchEvent; width: string; isBack?: boolean }) {
+export default function EventCard(props: { event?: PinchEvent; width: string; isFront?: boolean; turn?: boolean }) {
   return <CommonCard front={<EventFront event={props.event} />} back={<EventBack />} {...props} />;
 }
