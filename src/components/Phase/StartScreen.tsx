@@ -84,7 +84,7 @@ export default function StartScreen() {
       generateEvents({ title: title, count: eventCardCount }),
       generateItems({
         title: title,
-        count: itemCardCount - gameSetting.nonRelatedItemsCount,
+        count: itemCardCount - (gameSetting.nonRelatedItemsCount ?? 0),
         nonrelated_count: gameSetting.nonRelatedItemsCount,
       }),
     ]);
