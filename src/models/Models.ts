@@ -96,6 +96,7 @@ export function replenishItems(settings: SessionSettings) {
 
 export interface GameSettings {
   itemsCount: number;
+  nonRelatedItemsCount: number;
   minTurn: number;
   maxTurn: number;
   evaluateWith: "tension" | "avarage" | "max";

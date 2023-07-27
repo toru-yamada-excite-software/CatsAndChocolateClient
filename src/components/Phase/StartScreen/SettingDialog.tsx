@@ -30,6 +30,7 @@ export default function SettingDialog(props: DialogProps) {
     gameSetting.minTurn != gameSetting.maxTurn ? gameSetting.maxTurn.toFixed() : "",
   );
   const [itemsCount, setItemsCount] = useState((gameSetting.itemsCount + 2).toFixed());
+  const [nonRelatedItemsCount, setNonRelatedItemsCount] = useState((gameSetting.nonRelatedItemsCount ?? 0).toFixed());
   const [evaluateWith, setEvaluateWith] = useState(gameSetting.evaluateWith);
   const [thresholdAvarage, setThresholdAvarage] = useState(gameSetting.thresholdAvarage.toFixed());
   const [thresholdMax, setThresholdMax] = useState(gameSetting.thresholdMax.toFixed());
@@ -52,6 +53,7 @@ export default function SettingDialog(props: DialogProps) {
       minTurn: Number(turnHasRange == "0" ? turnCount : minTurnCount),
       maxTurn: Number(turnHasRange == "0" ? turnCount : maxTurnCount),
       itemsCount: Number(itemsCount) - 2,
+      nonRelatedItemsCount: Number(nonRelatedItemsCount),
       evaluateWith: evaluateWith,
       thresholdAvarage: Number(thresholdAvarage),
       thresholdMax: Number(thresholdMax),
@@ -117,16 +119,26 @@ export default function SettingDialog(props: DialogProps) {
             }
           />
         </RadioGroup>
-        <Typography id="itemsCount">アイテム数：</Typography>
-        <ValidTextField
-          aria-labelledby="itemsCount"
-          type="number"
-          size="small"
-          inputProps={{ min: 3, max: 99 }}
-          value={itemsCount}
-          onChange={(e) => setItemsCount(e.target.value)}
-          sx={{ mb: 2 }}
-        />
+        <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+          <Typography id="itemsCount">アイテム数：</Typography>
+          <ValidTextField
+            aria-labelledby="itemsCount"
+            type="number"
+            size="small"
+            inputProps={{ min: 3, max: 99 }}
+            value={itemsCount}
+            onChange={(e) => setItemsCount(e.target.value)}
+          />
+          <Typography id="nonRelatedItemsCount">内お題と無関係なアイテム：</Typography>
+          <ValidTextField
+            aria-labelledby="nonRelatedItemsCount"
+            type="number"
+            size="small"
+            inputProps={{ min: 0, max: itemsCount }}
+            value={nonRelatedItemsCount}
+            onChange={(e) => setNonRelatedItemsCount(e.target.value)}
+          />
+        </Box>
         <Typography id="evaluateWith">GPT採点基準：</Typography>
         <Select
           aria-labelledby="evaluateWith"
@@ -173,7 +185,7 @@ export default function SettingDialog(props: DialogProps) {
           <Button variant="contained" sx={{ mr: 1 }} onClick={onSet}>
             OK
           </Button>
-          <Button variant="outlined" onClick={(e) => props.onClose?.("cancel", "backdropClick")}>
+          <Button variant="outlined" onClick={() => props.onClose?.("cancel", "backdropClick")}>
             キャンセル
           </Button>
         </Box>

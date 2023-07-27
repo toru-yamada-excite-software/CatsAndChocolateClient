@@ -6,6 +6,7 @@ const serverURI = "http://localhost:8000";
 export interface GenerateItemParam {
   title: string;
   count: number;
+  nonrelated_count?: number;
 }
 
 export interface GenerateItemResponse {

@@ -5,6 +5,7 @@ import { atomWithStorage } from "jotai/utils";
 
 export const gameSettingsAtom = atomWithStorage<GameSettings>("gamesettings", {
   itemsCount: 31,
+  nonRelatedItemsCount: 15,
   maxTurn: 3,
   minTurn: 3,
   evaluateWith: "max",

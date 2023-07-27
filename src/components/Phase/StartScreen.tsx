@@ -82,7 +82,11 @@ export default function StartScreen() {
 
     const [eventResp, itemResp] = await Promise.all([
       generateEvents({ title: title, count: eventCardCount }),
-      generateItems({ title: title, count: gameSetting.itemsCount }),
+      generateItems({
+        title: title,
+        count: itemCardCount - gameSetting.nonRelatedItemsCount,
+        nonrelated_count: gameSetting.nonRelatedItemsCount,
+      }),
     ]);
 
     const events = shuffle(eventResp.data.events);
