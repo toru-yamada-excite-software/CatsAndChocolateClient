@@ -4,7 +4,10 @@
   "containerEnv": {
     "TZ": "Asia/Tokyo"
   },
-  "postCreateCommand": "/bin/sh ./.devcontainer/postCreateCommand.sh",
+  "postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh",
+  "mounts": [
+    "source=node-modules-${devcontainerId},target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
   "customizations": {
     "vscode": {
       "extensions": [
